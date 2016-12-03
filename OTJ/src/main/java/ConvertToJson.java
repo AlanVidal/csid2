@@ -6,10 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ConvertToJson {
 
 	private static String unwrapp(Object obj) throws IllegalArgumentException, IllegalAccessException {
-		Field[] fields = obj.getClass().getFields(); // Ne prend pas exactement
-														// la forme d'un json
-														// mais c'est pour
-														// tester
+		Field[] fields = obj.getClass().getFields(); 
+														
 		String lValue = "{";
 		for (Field f : fields) {
 
