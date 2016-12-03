@@ -7,7 +7,7 @@ public class ConvertToJson {
 
 	private static String unwrapp(Object obj) throws IllegalArgumentException, IllegalAccessException {
 		Field[] fields = obj.getClass().getFields(); 
-														
+		
 		String lValue = "{";
 		for (Field f : fields) {
 
