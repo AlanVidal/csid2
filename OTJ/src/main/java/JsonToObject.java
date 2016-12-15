@@ -6,13 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonToObject {
 
-	public static String convert(String str) throws JsonParseException, JsonMappingException, IOException,
+	public static Book convert(String str) throws JsonParseException, JsonMappingException, IOException,
 			IllegalArgumentException, IllegalAccessException {
 		ObjectMapper mapper = new ObjectMapper();
 		Book book =  mapper.readValue(str, Book.class);
 
-		System.out.println("New Object  ==>" + book.getClass());
-		return book.toString();
+		return book;
 	}
 
 }

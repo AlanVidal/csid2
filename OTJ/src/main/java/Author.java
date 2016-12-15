@@ -25,4 +25,10 @@ public class Author {
 		this.age = aAge;
 	}
 
+	public Author() {
+		super();
+	}
+	
+	
+
 }

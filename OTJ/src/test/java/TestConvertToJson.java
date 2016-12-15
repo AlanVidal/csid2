@@ -30,18 +30,18 @@ public class TestConvertToJson {
 				ObjectToJson);
 	}
 
-	// Convertit un json en objet, pas fini
-
+	// Convertit un json en objet
 	@Test
 	public void testJsonToObjectJackson() throws JsonParseException, JsonMappingException, IOException,
 			IllegalArgumentException, IllegalAccessException {
 		Author author = new Author("Egan", 50);
 		Book book = new Book("Isolation", author, 100);
+		
 		String str = ConvertToJson.jacksonString(book);
-		String resultat = JsonToObject.convert(str);
-		Assert.assertEquals(
-				"{\"bookName\":\"Isolation\",\"Author\":{\"authorName\":\"Egan\"\"age\":\"50\"},\"nbrPage\":\"100\"}",
-				resultat);
+		
+		System.out.println("testJsonToObjectJackson temoins " + str);
+		Book resultat = JsonToObject.convert(str);
+		Assert.assertEquals(ConvertToJson.jacksonString(resultat),str);
 
 	}
 	// Convertit n'importe quoi en Json en passant par Jackson
@@ -51,7 +51,7 @@ public class TestConvertToJson {
 		Author author = new Author("Greg", 50);
 		Book book = new Book("Isolation", author, 100);
 		String str = ConvertToJson.jacksonString(book);
-		System.out.println(str);
+		System.out.println("testObjectToJsonJackson, temoins "+str);
 		Assert.assertEquals(
 				"{\"bookName\":\"Isolation\",\"auther\":{\"authorName\":\"Greg\",\"age\":50},\"nbrPage\":100}", str);
 	}
